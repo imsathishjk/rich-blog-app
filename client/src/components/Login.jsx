@@ -81,7 +81,7 @@ const Login = () => {
         <motion.div
             initial={{ y: 100 }}
             animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             className='z-30 relative
         '>
             <form onSubmit={handleAuthentication} className='flex flex-col gap-6 absolute top-1/2 left-1/2 bg-white text-black shadow rounded-md p-2 px-4
