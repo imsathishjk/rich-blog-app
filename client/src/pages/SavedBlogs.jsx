@@ -10,12 +10,7 @@ import { motion } from 'motion/react'
 
 const SavedBlogs = () => {
     const { backendUrl, fetchSavedBlogs, filterUserSavedBlogs } = useContext(AppContext);
-    const [filteredBlogs, setFilteredBlogs] = useState([]);
 
-    // const filteredSavedBlogs = () => {
-    //     let temp = blogs.filter((blog) => savedBlogs.some((item) => blog.id == item.blogId && item.userId == user.id));
-    //     setFilteredBlogs(temp);
-    // }
     const handleRemoveSavedBlogs = async (id) => {
         try {
             const { data } = await axios.post(`${backendUrl}/api/remove-saved-blog/${id}`, { withCredentials: true })
@@ -29,10 +24,10 @@ const SavedBlogs = () => {
             toast.error(err.message);
         }
     }
-    // useEffect(() => {
-    //     filteredSavedBlogs()
-    //     // fetchSavedBlogs();
-    // }, [savedBlogs]);
+
+    useEffect(() => {
+        fetchSavedBlogs();
+    }, [])
 
     return (
         <div className='h-[60vh]'>

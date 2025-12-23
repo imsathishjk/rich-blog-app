@@ -20,7 +20,7 @@ const Login = () => {
     const [image, setImage] = useState(null);
     const [imagePreview, setImagePreview] = useState('');
 
-    const { setShowLogin, backendUrl, handleUserData } = useContext(AppContext);
+    const { setShowLogin, backendUrl, handleUserData, fetchSavedBlogs } = useContext(AppContext);
     const imageRef = useRef(null);
     const handleAuthentication = async (event) => {
         event.preventDefault();
@@ -34,7 +34,8 @@ const Login = () => {
                 const { data } = await axios.post(`${backendUrl}/api/user/register`, formData, { withCredentials: true });
                 if (data.success) {
                     setShowLogin(false);
-                    handleUserData()
+                    handleUserData();
+                    fetchSavedBlogs();
                     setUsername('');
                     setEmail('');
                     setPassword('')
@@ -53,6 +54,7 @@ const Login = () => {
                 if (data.success) {
                     setShowLogin(false);
                     handleUserData();
+                    fetchSavedBlogs();
                     setEmail('');
                     setPassword('')
                     toast.success(data.msg)

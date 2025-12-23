@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
-export const authMiddleWare = async(req, res, next) => {
+export const authMiddleWare = (req, res, next) => {
     try {
-        const token = await req.cookies?.token;
+        const token = req.cookies?.token;
         if (!token) {
             return res.json({ success: false, msg: 'Not authorized Login Again!' })
         }

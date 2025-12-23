@@ -13,14 +13,10 @@ const PORT = 8000;
 
 app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    origin: [
-        process.env.CLIENT_URL,
-        /\.vercel\.app$/],
+    origin: [process.env.CLIENT_URL],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
-
-app.options("*", cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -33,6 +29,11 @@ app.use('/api', blogRoute)
 app.get('/', (req, res) => {
     res.send('Api working...');
     res.send(process.env.CLIENT_URL)
+})
+
+
+app.listen(PORT, () => {
+    console.log(`server is running on http://localhost:${PORT}`)
 })
 
 

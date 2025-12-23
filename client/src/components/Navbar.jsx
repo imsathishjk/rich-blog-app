@@ -80,7 +80,7 @@ const Navbar = () => {
                                         }
                                         {
                                             !location.pathname.includes('/saved-blogs') && (
-                                                <button onClick={() => { navigate('/saved-blogs', scrollTo(0, 0)), setShowOptions(false) }} className='text-sm font-medium cursor-pointer text-violet-600 py-2 px-1 border-t border-t-gray-200 w-full text-left flex items-center gap-1'><IoMdBookmark /> Saved Blogs <span className='text-[16px] font-bold ml-1'>{filterUserSavedBlogs?.length}</span></button>
+                                                <button onClick={() => { navigate('/saved-blogs', scrollTo(0, 0)), setShowOptions(false) }} className='text-sm font-medium cursor-pointer text-violet-600 py-2 px-1 border-t border-t-gray-200 w-full text-left flex items-center gap-1'><IoMdBookmark /> Saved Blogs <span className='text-[16px] font-bold ml-1'>{filterUserSavedBlogs.length}</span></button>
                                             )
                                         }
                                         <button onClick={handleLogout} className='text-sm font-medium cursor-pointer text-violet-600 py-2 px-1 border-t border-t-gray-200 w-full text-left flex items-center gap-1'><IoLogOut /> Logout</button>

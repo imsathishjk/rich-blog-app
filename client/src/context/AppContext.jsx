@@ -17,7 +17,7 @@ export const AppContextProvider = ({ children }) => {
     const [author, setAuthor] = useState();
     const [savedBlogs, setSavedBlogs] = useState([]);
     const [filterUserSavedBlogs, setFilteredUserSavedBlogs] = useState([]);
-    
+
     axios.defaults.withCredentials = true;
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -73,12 +73,14 @@ export const AppContextProvider = ({ children }) => {
     }
 
 
+
+
     useEffect(() => {
         fetchBlogs();
-        handleUserData();
-        fetchSavedBlogs();
+        handleUserData()
         isAuthenticate();
-    }, [isAuth]);
+        fetchSavedBlogs();
+    }, []);
     useEffect(() => {
         handleUserSavedBlogs();
     }, [user, isAuth, savedBlogs]);
@@ -86,7 +88,7 @@ export const AppContextProvider = ({ children }) => {
 
     const value = {
         showLogin, setShowLogin, navigate, blogs, backendUrl, user, handleUserData, setUser, isAdmin, setIsAdmin, isAuth,
-        author, setAuthor, setIsAuth, savedBlogs, filterUserSavedBlogs, fetchSavedBlogs
+        author, setAuthor, setIsAuth, savedBlogs, filterUserSavedBlogs, fetchSavedBlogs,
     }
 
     return (
