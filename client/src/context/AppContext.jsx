@@ -4,10 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from "react-hot-toast";
 
-
 const AppContext = createContext();
-
-
 
 export const AppContextProvider = ({ children }) => {
 
@@ -21,7 +18,7 @@ export const AppContextProvider = ({ children }) => {
     const [savedBlogs, setSavedBlogs] = useState([]);
     const [filterUserSavedBlogs, setFilteredUserSavedBlogs] = useState([]);
 
-    const backendUrl = import.meta.env.BACKEND_URL;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     console.log(backendUrl)
 
