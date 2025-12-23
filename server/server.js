@@ -13,7 +13,7 @@ const PORT = 8000;
 app.use(express.json());
 app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    origin: 'http://localhost:5173', // or your deployed frontend URL
+    origin: 'https://rich-blog-app-client.vercel.app', // or your deployed frontend URL
     credentials: true
 }));
 
