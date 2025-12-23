@@ -21,7 +21,7 @@ export const AppContextProvider = ({ children }) => {
     const [savedBlogs, setSavedBlogs] = useState([]);
     const [filterUserSavedBlogs, setFilteredUserSavedBlogs] = useState([]);
 
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = import.meta.env.BACKEND_URL;
 
 
     const handleUserData = async () => {
