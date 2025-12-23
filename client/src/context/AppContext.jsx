@@ -17,6 +17,7 @@ export const AppContextProvider = ({ children }) => {
     const [author, setAuthor] = useState();
     const [savedBlogs, setSavedBlogs] = useState([]);
     const [filterUserSavedBlogs, setFilteredUserSavedBlogs] = useState([]);
+    axios.defaults.withCredentials = true;
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 

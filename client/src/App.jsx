@@ -17,7 +17,6 @@ import SavedBlogs from './pages/SavedBlogs'
 
 const App = () => {
   const { modal, setShowModal, setShowLogin } = useContext(AppContext);
-  axios.defaults.withCredentials = true;
 
   const location = useLocation();
   return (
