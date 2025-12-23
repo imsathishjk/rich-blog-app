@@ -23,6 +23,8 @@ export const AppContextProvider = ({ children }) => {
 
     const backendUrl = import.meta.env.BACKEND_URL;
 
+    console.log(backendUrl)
+
 
     const handleUserData = async () => {
         const { data } = await axios.get(`${backendUrl}/api/user`, { withCredentials: true });
