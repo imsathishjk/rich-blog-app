@@ -30,6 +30,7 @@ app.use('/api', blogRoute)
 
 app.get('/', (req, res) => {
     res.send('Api working...');
+    res.send(process.env.CLIENT_URL)
 })
 
 
