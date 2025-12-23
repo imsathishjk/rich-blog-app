@@ -13,10 +13,13 @@ const PORT = 8000;
 
 app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    origin: process.env.VITE_CLIENT_URL, // or your deployed frontend URL
+    origin: process.env.CLIENT_URL, // or your deployed frontend URL
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
+
+app.options("*", cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
