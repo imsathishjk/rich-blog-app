@@ -10,16 +10,16 @@ const app = express();
 config();
 const PORT = 8000;
 
-app.use(express.json());
+
 app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    origin: 'https://rich-blog-app-client.vercel.app', // or your deployed frontend URL
+    origin: process.env.VITE_CLIENT_URL, // or your deployed frontend URL
     credentials: true
 }));
-
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('uploads'))
+
 
 app.use('/api', authRoute);
 app.use('/api', blogRoute)
@@ -27,6 +27,6 @@ app.use('/api', blogRoute)
 app.get('/', (req, res) => {
     res.send('Api working...');
 })
-app.listen(PORT, () => {
-    console.log(`server is running on http://localhost:${PORT}`);
-})
+
+
+export default app;
