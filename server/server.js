@@ -13,7 +13,7 @@ const PORT = 8000;
 
 app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    origin: [process.env.CLIENT_URL],
+    origin: 'https://rich-blog-app-client.vercel.app',
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
