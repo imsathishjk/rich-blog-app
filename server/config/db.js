@@ -7,24 +7,34 @@
 // export const prisma = new PrismaClient({ adapter });
 
 
-import "dotenv/config";
-import { PrismaPg } from "@prisma/adapter-pg";
+// import "dotenv/config";
+// import { PrismaPg } from "@prisma/adapter-pg";
+// import { PrismaClient } from "@prisma/client";
+
+// const globalForPrisma = globalThis;
+
+// export const prisma =
+//     globalForPrisma.prisma ||
+//     new PrismaClient({
+//         adapter: new PrismaPg({
+//             connectionString: process.env.DATABASE_URL_POOLED,
+//         }),
+//     });
+
+// if (process.env.NODE_ENV !== "production") {
+//     globalForPrisma.prisma = prisma;
+// }
+
 import { PrismaClient } from "@prisma/client";
 
 const globalForPrisma = globalThis;
 
 export const prisma =
-    globalForPrisma.prisma ||
-    new PrismaClient({
-        adapter: new PrismaPg({
-            connectionString: process.env.DATABASE_URL,
-        }),
-    });
+  globalForPrisma.prisma || new PrismaClient();
 
 if (process.env.NODE_ENV !== "production") {
-    globalForPrisma.prisma = prisma;
+  globalForPrisma.prisma = prisma;
 }
-
 
 
 // const connectDB = async () => {
