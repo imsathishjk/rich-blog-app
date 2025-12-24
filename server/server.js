@@ -11,17 +11,18 @@ config();
 const PORT = 8000;
 
 
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     origin: 'https://rich-blog-app-client.vercel.app',
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-
 
 app.use('/api', authRoute);
 app.use('/api', blogRoute)
