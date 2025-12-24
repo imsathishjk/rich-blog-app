@@ -79,8 +79,8 @@ const Login = () => {
     }
     return (
         <motion.div
-            initial={{ y: 100 }}
-            animate={{ y: 0 }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
             transition={{ duration: 0.3 }}
             className='z-30 relative
         '>

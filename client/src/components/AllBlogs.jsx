@@ -11,7 +11,7 @@ import { motion } from 'motion/react'
 
 const AllBlogs = () => {
 
-    const { blogs, navigate, backendUrl, user, filterUserSavedBlogs, fetchSavedBlogs, isAuth } = useContext(AppContext);
+    const { blogs, navigate, backendUrl, user, filterUserSavedBlogs, fetchSavedBlogs, isAuth, setShowLogin } = useContext(AppContext);
     const [bookMark, setBookMark] = useState(false);
 
     const handleSaveBookMark = async (id) => {
@@ -45,6 +45,12 @@ const AllBlogs = () => {
         } catch (err) {
             toast.error(err.message);
         }
+    }
+    const handleNavigate = (id) => {
+        if (!isAuth) {
+            setShowLogin(true)
+        }
+        navigate(`/blog/${id}`, scrollTo(0, 0));
     }
     return (
 
@@ -82,7 +88,7 @@ const AllBlogs = () => {
                                     </div>
                                 </div>
 
-                                <div onClick={() => navigate(`/blog/${blog.id}`, scrollTo(0, 0))} >
+                                <div onClick={() => handleNavigate(blog.id)} >
                                     <div className='flex items-center justify-between p-1.5'>
                                         <h1 className='font-bold text-sm flex items-center text-violet-600 uppercase gap-1'><MdEditSquare /> {user?.id == blog.userId ? user.username : 'Sathish'}</h1>
                                         <p className='font-bold text-sm text-orange-500'>{moment(blog.createdAt).format('DD MMM YY')}</p>

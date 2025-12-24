@@ -12,7 +12,6 @@ import ManageBlogs from './pages/ManageBlogs'
 import LikedBlog from './pages/LikedBlog'
 import { Toaster } from 'react-hot-toast';
 import { IoCloseSharp } from 'react-icons/io5'
-import axios from 'axios'
 import SavedBlogs from './pages/SavedBlogs'
 
 const App = () => {

@@ -20,7 +20,7 @@ export const AppContextProvider = ({ children }) => {
 
     axios.defaults.withCredentials = true;
 
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = import.meta.env.VITE_API_URL;
 
     console.log(backendUrl)
 

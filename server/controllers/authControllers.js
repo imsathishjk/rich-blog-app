@@ -70,6 +70,26 @@ export const userLogin = async (req, res) => {
 }
 
 
+export const updateUser = async (req, res) => {
+    try {
+        const userId = req.userId;
+        const image = req.file;
+        if (!image) {
+            return res.json({ success: false, msg: 'Please upload image to proceed' })
+        }
+        const imageUrl = await uploadToCloudinary(image, 'image');
+        const updatedUser = await prisma.user.update({ where: { id: userId }, data: { image: imageUrl } })
+        if (updatedUser) {
+            return res.json({ success: true, msg: 'Profile Picture Updated Successfully' })
+        }
+        return res.json({ success: false, msg: 'error in updating a profile picture' })
+    } catch (err) {
+        res.json({ success: false, msg: err.message })
+    }
+
+}
+
+
 export const userLogout = async (req, res) => {
     try {
         res.clearCookie('token', {
