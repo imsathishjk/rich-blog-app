@@ -10,11 +10,12 @@ const app = express();
 config();
 const PORT = 8000;
 
-const allowedOrigins = ['http://localhost:5173', process.env.CLIENT_URL, 'https://rich-blog-app-client-mcju7h6jf-sathishs-projects-640711c0.vercel.app']
+
 app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    origin: allowedOrigins,
+    origin: [process.env.CLIENT_URL],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 app.use(express.json());

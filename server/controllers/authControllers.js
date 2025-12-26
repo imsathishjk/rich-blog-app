@@ -28,9 +28,9 @@ export const handleUserRegister = async (req, res) => {
         const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
         res.cookie('token', token, {
-            httpOnly: true,      // safe from JS
-            secure: true,        // requires https
-            sameSite: "none",
+            httpOnly: true,
+            secure: process.env.NODE_ENV == 'production',
+            sameSite: process.env.NODE_ENV == 'production' ? 'none' : 'strict',
             maxAge: 1000 * 60 * 60 * 24 * 1
         })
         return res.json({ success: true, msg: 'user added successfully', user: newUser })
@@ -58,9 +58,9 @@ export const userLogin = async (req, res) => {
         }
         const token = jwt.sign({ id: existingUser.id }, process.env.JWT_SECRET, { expiresIn: '1d' });
         res.cookie('token', token, {
-            httpOnly: true,      // safe from JS
-            secure: true,        // requires https
-            sameSite: "none",
+            httpOnly: true,
+            secure: process.env.NODE_ENV == 'production',
+            sameSite: process.env.NODE_ENV == 'production' ? 'none' : 'strict',
             maxAge: 1000 * 60 * 60 * 24 * 1
         })
         return res.json({ success: true, msg: 'Logged in successfully', user: existingUser })
@@ -93,9 +93,9 @@ export const updateUser = async (req, res) => {
 export const userLogout = async (req, res) => {
     try {
         res.clearCookie('token', {
-            httpOnly: true,      // safe from JS
-            secure: true,        // requires https
-            sameSite: "none",
+            httpOnly: true,
+            secure: process.env.NODE_ENV == 'production',
+            sameSite: process.env.NODE_ENV == 'production' ? 'none' : 'strict',
         })
         return res.json({ success: true, msg: 'Logged out' })
     } catch (err) {
