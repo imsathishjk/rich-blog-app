@@ -20,7 +20,6 @@ const LikedBlog = () => {
         const tempData = blogs.filter((blog) => usersLikedBlogs.some((user) => blog.id == user.blogId));
         setUniquBlogs(tempData);
     }
-    console.log(uniqueBlogs)
     useEffect(() => {
         filteredLikedBlogs();
     }, [usersLikedBlogs]);
