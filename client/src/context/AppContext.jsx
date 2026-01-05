@@ -17,6 +17,7 @@ export const AppContextProvider = ({ children }) => {
     const [author, setAuthor] = useState();
     const [savedBlogs, setSavedBlogs] = useState([]);
     const [filterUserSavedBlogs, setFilteredUserSavedBlogs] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     axios.defaults.withCredentials = true;
 
@@ -46,9 +47,14 @@ export const AppContextProvider = ({ children }) => {
 
     const fetchBlogs = async () => {
         try {
+            setLoading(true);
             const { data } = await axios.get(`${backendUrl}/api/all-blogs`);
             if (data.success) {
                 setBlogs(data.blogs);
+                setLoading(false);
+            } else {
+                toast.error(data.msg);
+                setLoading(false);
             }
         } catch (err) {
             toast.error(err.message);
@@ -85,7 +91,7 @@ export const AppContextProvider = ({ children }) => {
 
     const value = {
         showLogin, setShowLogin, navigate, blogs, backendUrl, user, handleUserData, setUser, isAdmin, setIsAdmin, isAuth,
-        author, setAuthor, setIsAuth, savedBlogs, filterUserSavedBlogs, fetchSavedBlogs,
+        author, setAuthor, setIsAuth, savedBlogs, filterUserSavedBlogs, fetchSavedBlogs, loading,
     }
 
     return (
