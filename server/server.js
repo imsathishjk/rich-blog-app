@@ -11,7 +11,7 @@ config();
 const PORT = 8000;
 
 const allowedOrigins = [
-    "http://localhost:5173"
+    "https://rich-blog-app-client.vercel.app"
 ];
 
 app.use(cors({
