@@ -60,13 +60,13 @@ const AllBlogs = () => {
                 {
                     blogs.map((blog) => {
                         return (
-                            <div key={blog.id} className='cursor-pointer text-black rounded-md'>
+                            <div key={blog.id} className='cursor-pointer text-black rounded-lg'>
                                 <div className='rounded-lg relative group w-full'>
                                     <motion.img
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ duration: 0.3 }}
-                                        src={blog.posterUrl} alt={blog.title} className='rounded-lg object-contain h-[250px] w-full' ></motion.img >
+                                        src={blog.posterUrl} alt={blog.title} className='rounded-ss-lg rounded-se-lg object-cover h-[250px] w-full' ></motion.img >
                                     <div className='absolute top-0 left-0 flex items-center gap-3 z-0'>
                                         {
                                             blog.category.length > 1 ? (
@@ -88,7 +88,7 @@ const AllBlogs = () => {
                                     </div>
                                 </div>
 
-                                <div onClick={() => handleNavigate(blog.id)} >
+                                <div onClick={() => handleNavigate(blog.id)}  className='bg-gray-50 p-1.5 rounded-ee-lg rounded-se-lg border border-gray-200'>
                                     <div className='flex items-center justify-between p-1.5'>
                                         <h1 className='font-bold text-sm flex items-center text-violet-600 uppercase gap-1'><MdEditSquare /> {user?.id == blog.userId ? user.username : 'Sathish'}</h1>
                                         <p className='font-bold text-sm text-orange-500'>{moment(blog.createdAt).format('DD MMM YY')}</p>
