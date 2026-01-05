@@ -61,12 +61,12 @@ const AllBlogs = () => {
                     blogs.map((blog) => {
                         return (
                             <div key={blog.id} className='cursor-pointer text-black rounded-md'>
-                                <div className='rounded-lg relative group'>
+                                <div className='rounded-lg relative group w-full'>
                                     <motion.img
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ duration: 0.3 }}
-                                        src={blog.posterUrl} alt={blog.title} className='rounded-lg object-cover h-[250px] w-full' ></motion.img >
+                                        src={blog.posterUrl} alt={blog.title} className='rounded-lg object-contain h-[250px] w-full' ></motion.img >
                                     <div className='absolute top-0 left-0 flex items-center gap-3 z-0'>
                                         {
                                             blog.category.length > 1 ? (
