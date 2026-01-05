@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+@import "tailwindcss";
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.ql-toolbar {
+    background-color: white;
+    border: 1px solid #1f2937;
+}
+
+.ql-container {
+    min-height: 150px;
+    border-radius: 3px;
+}
+
+.quill-content p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.quill-content h2 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.quill-content b {
+    font-weight: bold;
+}
+
+.quill-content a {
+    text-decoration: underline;
+    color: orange;
+}
+
+.quill-content i {
+    font-style: italic;
+}
+
+.quill-content ul,
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style: decimal;
+    list-style-position: inside
+}
+
+.quill-content li {
+    font-weight: 600;
+}
+
+.quill-content-blog h2 {
+    font-weight: 800;
+    font-size: 18px;
+}
+.quill-content-blog h3 {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.quill-content-blog ul,
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style: decimal;
+    list-style-position: inside
+}
+.quill-content-blog p{
+    font-weight: 500;
+}
+.quill-content-blog li {
+    font-weight: 600;
+}
