@@ -23,7 +23,7 @@ const SingleBlog = () => {
     const handleBlogData = async () => {
         setLoading(true);
         try {
-            const { data } = await axios.get(`${backendUrl}/api/single-blog/${id}`, { withCredentials: true });
+            const { data } = await axios.get(`${backendUrl}/api/single-blog/${id}`);
             if (data.success) {
                 setBlogData(data.blog);
                 setLoading(false);
@@ -76,11 +76,11 @@ const SingleBlog = () => {
         setLikeCount(likedBlogs.length);
     }
 
-    useEffect(() => {
-        if (!isAuth) {
-            navigate('/')
-        }
-    }, [isAuth]);
+    // useEffect(() => {
+    //     if (!isAuth) {
+    //         navigate('/')
+    //     }
+    // }, [isAuth]);
 
     useEffect(() => {
         handleLikeCounts();

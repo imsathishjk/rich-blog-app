@@ -7,7 +7,7 @@ const blogRoute = express.Router();
 
 blogRoute.post('/add-blog', authMiddleWare, upload.single('image'), addBlog);
 blogRoute.get('/all-blogs', fetchBlogs);
-blogRoute.get('/single-blog/:id', authMiddleWare, handleSingleBlog);
+blogRoute.get('/single-blog/:id', handleSingleBlog);
 
 
 

@@ -22,7 +22,7 @@ export const AppContextProvider = ({ children }) => {
     axios.defaults.withCredentials = true;
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
-    console.log(backendUrl)
+    
     const handleUserData = async () => {
         const { data } = await axios.get(`${backendUrl}/api/user`, { withCredentials: true });
         if (data.success) {

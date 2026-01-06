@@ -57,9 +57,12 @@ const AllBlogs = () => {
 
         <div className='mt-20'>
             <h1 className='text-center font-bold text-xl md:text-2xl tracking-wide select-none'>All Blogs</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-sm:place-items-center'>
+            <div className='flex justify-center items-center my-12'>
+                {loading ? <Loader /> : ''}
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 place-items-center'>
                 {
-                    loading ? <Loader /> :
+                    !loading ?
                         blogs.map((blog) => {
                             return (
                                 <div key={blog.id} className='cursor-pointer text-black rounded-lg'>
@@ -104,7 +107,7 @@ const AllBlogs = () => {
                                     </div>
                                 </div>
                             )
-                        })
+                        }) : ''
                 }
             </div>
         </div>
